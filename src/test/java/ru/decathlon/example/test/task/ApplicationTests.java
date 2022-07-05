@@ -1,4 +1,4 @@
-package ru.deca.example.testtask0;
+package ru.decathlon.example.test.task;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

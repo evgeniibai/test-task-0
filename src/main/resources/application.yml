@@ -1,1 +1,33 @@
+# Server
+server:
+  port: 9090
 
+# Spring
+spring:
+  datasource:
+    url: jdbc:h2:mem:db
+    driverClassName: org.h2.Driver
+    username: root
+    password: root
+
+#  Flyway
+  flyway:
+    url: jdbc:h2:mem:db
+    user: root
+    password: root
+
+#  JPA
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+
+#  H2
+  h2:
+    console:
+      enabled: true
+      path: /h2
