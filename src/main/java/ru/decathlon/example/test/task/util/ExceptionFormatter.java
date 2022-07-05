@@ -1,8 +1,8 @@
 package ru.decathlon.example.test.task.util;
 
-public final class ExceptionFormatterUtil {
+public final class ExceptionFormatter {
 
-    private ExceptionFormatterUtil() {
+    private ExceptionFormatter() {
     }
 
     public static String format(Exception ex) {
