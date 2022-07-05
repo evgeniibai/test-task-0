@@ -2,8 +2,8 @@ package ru.decathlon.example.test.task.util;
 
 import java.util.UUID;
 
-public final class HashingUtil {
-    private HashingUtil() {
+public final class CraftedHash {
+    private CraftedHash() {
     }
 
     public static String hash() {
