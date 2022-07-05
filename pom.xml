@@ -19,6 +19,7 @@
 	<properties>
 		<java.version>17</java.version>
 		<h2.version>2.1.210</h2.version>
+		<bouncycastle.version>1.70</bouncycastle.version>
 	</properties>
 
 	<dependencies>
@@ -76,6 +77,13 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
+		</dependency>
+
+		<!-- For Crypto -->
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk15on</artifactId>
+			<version>${bouncycastle.version}</version>
 		</dependency>
 
 		<!-- Tests -->
