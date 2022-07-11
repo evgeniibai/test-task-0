@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Welcome Page</title>
 </head>
 <body>
-
+    <div>
+        <h1>Welcome</h1>
+    </div>
+    <div>
+        <form action="/auth/logout" th:action="@{/auth/logout}" method="post">
+            <button type="submit">Sing Out</button>
+        </form>
+    </div>
 </body>
 </html>

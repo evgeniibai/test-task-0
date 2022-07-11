@@ -3,7 +3,7 @@ package ru.decathlon.example.test.task.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.annotation.CreatedDate;
+import org.hibernate.annotations.CreationTimestamp;
 import ru.decathlon.example.test.task.util.ExceptionFormatter;
 
 import javax.persistence.*;
@@ -21,7 +21,7 @@ public class ErrorLog {
     @Column(name = "error_id")
     private Integer errorId;
 
-    @CreatedDate
+    @CreationTimestamp
     @Column(name = "created_date")
     private LocalDateTime createdDate;
 

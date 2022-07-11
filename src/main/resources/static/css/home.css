@@ -1,0 +1,22 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline;
+}
+
+a {
+    text-decoration: none;
+    color: #696969;
+}
+
+a:active {
+    color: #228B22;
+}
+
+a:visited {
+    color: #8A2BE2;
+}

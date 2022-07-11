@@ -2,7 +2,7 @@
 create table if not exists error_log
 (
     error_id     int primary key auto_increment,
-    created_date timestamp   not null,
+    created_date timestamp   not null default CURRENT_TIMESTAMP,
     error_name   varchar(50) not null,
     description  text        not null
 );
@@ -51,7 +51,6 @@ create table if not exists users_fruits
 );
 
 -- Insert Information.
--- 000001c0-ac82-464b-bec4-a21fdd459e51
 -- 0000014b-b13d-4f98-ac90-b5b7b5fbcaf9
 insert into fruits
 values (1, 'Apple');
@@ -59,9 +58,15 @@ insert into fruits
 values (2, 'Banana');
 insert into users_details
 values (1, 'Evgenii', 'Bai', 'evgenii.bai@decathlon.com', '9135082020');
+-- admin, password: password
 insert into users
-values (1, '00000010-d729-4c52-ab29-b4dba065d2a7', 'admin', '{noop}admin', 1, 'ADMIN', 'ACTIVE');
+values (1, '00000010-d729-4c52-ab29-b4dba065d2a7', 'admin', '{bcrypt}$2a$12$uPXJwU2XYGGR2yQwMn.NPOMIPgPuntsiqUmKbrpnW2feW9lN.uyF2', 1, 'ADMIN', 'ACTIVE');
+-- user, password: 12345678
+insert into users
+values (2, '000001c0-ac82-464b-bec4-a21fdd459e51', 'user', '{bcrypt}$2a$12$PBatXxHW4Xq0ySypCtv4a.pkvCHWXJw9o.0neEiuWjIgx/p/GY7rS', null, 'USER', 'ACTIVE');
 insert into users_fruits
 values (1, 1);
 insert into users_fruits
 values (1, 2);
+insert into users_fruits
+values (2, 2);
