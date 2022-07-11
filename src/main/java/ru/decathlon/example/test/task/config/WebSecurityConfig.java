@@ -7,19 +7,15 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.argon2.Argon2PasswordEncoder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.DelegatingPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
 import org.springframework.security.crypto.scrypt.SCryptPasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import ru.decathlon.example.test.task.model.Role;
+import ru.decathlon.example.test.task.model.Permission;
 
 import java.util.Map;
 
@@ -33,6 +29,7 @@ public class WebSecurityConfig {
     private static final String AUTH_LOGIN = "/auth/login";
     private static final String AUTH_LOGOUT = "/auth/logout";
     private static final String FORWARD_URL = "/welcome";
+    private static final String DATABASE_URL = "/h2";
 
     @Bean
     @SneakyThrows
@@ -42,6 +39,7 @@ public class WebSecurityConfig {
                 .authorizeRequests()
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                 .antMatchers(INDEX_PAGE, HOME_PAGE).permitAll()
+                .antMatchers(DATABASE_URL).hasAuthority(Permission.WRITE.getAction())
                 .anyRequest()
                 .fullyAuthenticated()
                 .and()
@@ -56,7 +54,10 @@ public class WebSecurityConfig {
                 .deleteCookies("JSESSIONID")
                 .logoutSuccessUrl(INDEX_PAGE)
                 .and()
-                .httpBasic();
+                .httpBasic()
+                .and()
+                // add this line to use H2 web console
+                .headers().frameOptions().disable();
 
         return http.build();
     }
