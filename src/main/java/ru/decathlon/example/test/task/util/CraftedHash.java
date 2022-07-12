@@ -7,8 +7,11 @@ public final class CraftedHash {
     }
 
     public static String hash() {
+        return UUID.randomUUID().toString();
+    }
+
+    public static String hardHash(String targetStringEnd) {
         String uuid = "";
-        String targetStringEnd = "0000";
         boolean isRunning = true;
         while (isRunning) {
             uuid = UUID.randomUUID().toString();
