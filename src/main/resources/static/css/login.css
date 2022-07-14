@@ -1,6 +1,43 @@
-.main {
-    display: grid;
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: grey;
+    background-image: url("/images/login-background.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    /*background-size: cover;*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+
+.container {
+    /*Center element*/
+    /*display: grid;
     place-items: center;
     width: 100vw;
-    height: 100vh;
+    height: 100vh;*/
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: aquamarine;
+}
+
+.divider {
+    margin-top: 60px;
+    display: grid;
+    padding-left: 340px;
+    padding-right: 340px;
+    place-items: center;
+    background-color: grey;
+}
+
+form {
+    color: white;
+    padding: 3% 5%;
+    background-color: rgba(21,144,208,.8);
 }
