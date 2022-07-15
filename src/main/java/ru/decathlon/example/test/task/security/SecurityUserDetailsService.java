@@ -30,4 +30,6 @@ public class SecurityUserDetailsService implements UserDetailsService {
 
         return SecurityUser.fromUser(user);
     }
+
+    //TODO why errorService here?
 }

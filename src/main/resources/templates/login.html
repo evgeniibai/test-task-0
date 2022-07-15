@@ -2,25 +2,41 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/icon" href="/images/decathlon_favicon.gif" th:href="@{/images/decathlon_favicon.gif}">
+    <link rel="stylesheet" href="/css/login.css" th:href="@{/css/login.css}">
     <title>Login Page</title>
-    <link rel="stylesheet" type="text/css" href="/css/login.css" th:href="@{/css/login.css}">
 </head>
 <body>
-    <div class="container">
-        <div class="divider">
-            <form th:action="@{/auth/login}" method="post">
-                <div>
-                    <input type="text" name="username" placeholder="Username" autofocus>
-                </div>
-                <div>
-                    <input type="password" name="password" placeholder="Password" required>
-                </div>
-                <div>
-                    <button type="submit">Sing In</button>
-                </div>
+<div class="container">
+    <div class="principal">
+        <div class="header">
+            <img class="logo-decathlon" src="/images/logo-decathlon.png" th:src="@{/images/logo-decathlon.png}" alt="logo-decathlon">
+        </div>
+        <div class="divider"></div>
+        <form class="loginForm" action="/auth/login" th:action="@{/auth/login}" method="post">
+            <div class="form-group">
+                <label for="username" class="form-label">
+                    <input type="text" name="username" id="username" placeholder="Username" autocapitalize="off" autocomplete="off" autofocus>
+                </label>
+            </div>
+            <div class="form-group">
+                <label for="password" class="form-label">
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </label>
+            </div>
+            <div class="buttonDiv">
+                <button type="submit" class="submitBtn">Sign In</button>
+            </div>
+        </form>
+        <div class="footer">
+            <form action="/account/create-account" th:action="@{/account/create-account}">
+                <button type="submit" class="accountBtn">Create an Account</button>
             </form>
         </div>
     </div>
+</div>
 </body>
 </html>
 

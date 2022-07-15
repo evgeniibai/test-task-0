@@ -1,43 +1,137 @@
-*, ::after, ::before {
+*, ::before, ::after {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    background-color: grey;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: rgba(21,144,208,.8);
     background-image: url("/images/login-background.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
-    /*background-size: cover;*/
+    background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
 }
 
 .container {
-    /*Center element*/
-    /*display: grid;
-    place-items: center;
     width: 100vw;
-    height: 100vh;*/
-    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-top: 60px;
     margin-right: auto;
     margin-left: auto;
-    background-color: aquamarine;
+    display: grid;
+    place-items: center;
+}
+
+.principal {
+    background-color: rgba(21,144,208,.8);
+    width: 430px;
+}
+
+.header {
+    width: 100%;
+    height: 100px;
+    display: grid;
+    place-items: center;
+    background-color: #FCFEFF;
+}
+
+.header img {
+    margin: 30px auto auto auto;
+}
+
+.logo-decathlon {
+    width: 200px;
 }
 
 .divider {
-    margin-top: 60px;
-    display: grid;
-    padding-left: 340px;
-    padding-right: 340px;
-    place-items: center;
-    background-color: grey;
+    width: 100%;
+    height: 100px;
+    background-color: burlywood;
 }
 
 form {
     color: white;
+    margin-top: 0em;
     padding: 3% 5%;
-    background-color: rgba(21,144,208,.8);
+}
+
+.form-label {
+    position: relative;
+    margin: auto;
+    width: 100%;
+}
+
+.form-label input {
+    -webkit-appearance: none;
+    width: 100%;
+    border: 0;
+    font-family: inherit;
+    padding: 0px;
+    margin: 6px 0px;
+    height: 36px;
+    font-size: 16px;
+    border-bottom: 2px solid white;
+    background: none;
+    border-radius: 0;
+    color: white;
+
+    outline: none;
+}
+
+::placeholder {
+    color: white;
+    opacity: 1;
+}
+
+.buttonDiv {
+    display: grid;
+    margin-top: 33px;
+}
+
+.submitBtn {
+    border: none;
+    margin: auto;
+    text-transform: uppercase;
+    color: #0082C3;
+    font-weight: bold;
+    background: linear-gradient(#fff,#fff);
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 17%);
+    display: inline-block;
+    text-align: center;
+    height: 40px;
+    transition: all 0.5s;
+    cursor: pointer;
+    padding: 2px;
+    width: 100%;
+}
+
+.footer {
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.accountBtn {
+    border: 1px;
+    border-color: white;
+    border-style: solid;
+    margin: auto;
+    text-transform: uppercase;
+    color: white;
+    background-color: inherit;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 17%);
+    display: inline-block;
+    text-align: center;
+    height: 40px;
+    transition: all 0.5s;
+    cursor: pointer;
+    padding: 2px;
+    width: 100%;
 }

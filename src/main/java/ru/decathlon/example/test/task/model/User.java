@@ -3,8 +3,10 @@ package ru.decathlon.example.test.task.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import ru.decathlon.example.test.task.util.CraftedHash;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "users")
@@ -42,4 +44,12 @@ public class User {
     @Enumerated(value = EnumType.STRING)
     @Column(name = "status")
     private Status status;
+
+    public User(String username, String password) {
+        this.uuid = CraftedHash.hash();
+        this.username = Objects.requireNonNull(username, "username");
+        this.password = Objects.requireNonNull(password, "password");
+        this.role = Role.USER;
+        this.status = Status.ACTIVE;
+    }
 }

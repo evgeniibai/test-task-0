@@ -18,7 +18,7 @@
 
 	<properties>
 		<java.version>17</java.version>
-		<h2.version>2.1.212</h2.version>
+		<h2.version>2.1.210</h2.version>
 		<bouncycastle.version>1.70</bouncycastle.version>
 	</properties>
 
