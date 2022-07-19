@@ -30,6 +30,7 @@ public class WebSecurityConfig {
     private static final String AUTH_LOGOUT = "/auth/logout";
     private static final String DATABASE_URL = "/h2";
     private static final String CREATE_ACCOUNT = "/account/create-account";
+    private static final String ASSETS = "/assets/**";
     private static final String FORWARD_URL = "/welcome";
 
     @Bean
@@ -40,7 +41,7 @@ public class WebSecurityConfig {
                 .csrf().disable()
                 .authorizeRequests()
                     .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                    .antMatchers(INDEX_PAGE, HOME_PAGE, CREATE_ACCOUNT).permitAll()
+                    .antMatchers(ASSETS, INDEX_PAGE, HOME_PAGE, CREATE_ACCOUNT).permitAll()
                     .antMatchers(DATABASE_URL).hasAuthority(Permission.WRITE.getAction())
                     .anyRequest()
                     .fullyAuthenticated()

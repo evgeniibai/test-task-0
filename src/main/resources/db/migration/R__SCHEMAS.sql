@@ -52,18 +52,18 @@ create table if not exists users_fruits
 
 -- Insert Information.
 -- 0000014b-b13d-4f98-ac90-b5b7b5fbcaf9
-insert into fruits
-values (1, 'Apple');
-insert into fruits
-values (2, 'Banana');
-insert into users_details
-values (1, 'Evgenii', 'Bai', 'evgenii.bai@decathlon.com', '9135082020');
+insert into fruits (fruit_name)
+values ('Apple');
+insert into fruits (fruit_name)
+values ('Banana');
+insert into users_details (first_name, last_name, email, phone_number)
+values ('Evgenii', 'Bai', 'evgenii.bai@decathlon.com', '9135082020');
 -- admin, password: password
-insert into users
-values (1, '00000010-d729-4c52-ab29-b4dba065d2a7', 'admin', '{bcrypt}$2a$12$uPXJwU2XYGGR2yQwMn.NPOMIPgPuntsiqUmKbrpnW2feW9lN.uyF2', 1, 'ADMIN', 'ACTIVE');
+insert into users (uuid, username, password, details, role, status)
+values ('00000010-d729-4c52-ab29-b4dba065d2a7', 'admin', '{bcrypt}$2a$12$uPXJwU2XYGGR2yQwMn.NPOMIPgPuntsiqUmKbrpnW2feW9lN.uyF2', 1, 'ADMIN', 'ACTIVE');
 -- user, password: 12345678
-insert into users
-values (2, '000001c0-ac82-464b-bec4-a21fdd459e51', 'user', '{bcrypt}$2a$12$PBatXxHW4Xq0ySypCtv4a.pkvCHWXJw9o.0neEiuWjIgx/p/GY7rS', null, 'USER', 'ACTIVE');
+insert into users (uuid, username, password, details, role, status)
+values ('000001c0-ac82-464b-bec4-a21fdd459e51', 'user', '{bcrypt}$2a$12$PBatXxHW4Xq0ySypCtv4a.pkvCHWXJw9o.0neEiuWjIgx/p/GY7rS', null, 'USER', 'ACTIVE');
 insert into users_fruits
 values (1, 1);
 insert into users_fruits

@@ -2,10 +2,35 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Create Account</title>
+    <title>Create an Account</title>
 </head>
 <body>
-    <h1>Page under construction!</h1>
-    <a href="/" th:href="@{/}">Back</a>
+    <div class="container">
+        <div class="divider">
+            <div class="errors"></div>
+            <div class="create-form">
+                <form action="/account/create-account" th:action="@{/account/create-account}" th:object="${requestUserDTO}" method="post">
+                    <div class="form-group">
+                        <label>
+                            <input type="text" class="inputUsername" th:field="*{username}" placeholder="Username" autofocus autocomplete="off">
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="password" class="inputPassword" th:field="*{password}" placeholder="Password" required autocomplete="off">
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="password" class="inputConfirmedPassword" th:field="*{confirmedPassword}" placeholder="Confirm the password" required>
+                        </label>
+                    </div>
+                    <div class="submitButton">
+                        <button type="submit">Create an Account</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

@@ -17,7 +17,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
+    @Column(name = "user_id", nullable = false)
     private Long userId;
 
     @Column(name = "uuid")
@@ -28,9 +28,6 @@ public class User {
 
     @Column(name = "password")
     private String password;
-
-    @Transient
-    private String confirmedPassword;
 
     @OneToOne(cascade = CascadeType.ALL,
             fetch = FetchType.LAZY)
@@ -51,5 +48,10 @@ public class User {
         this.password = Objects.requireNonNull(password, "password");
         this.role = Role.USER;
         this.status = Status.ACTIVE;
+    }
+
+    @Override
+    public String toString() {
+        return getUuid() + ": " + getUsername();
     }
 }

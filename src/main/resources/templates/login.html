@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/icon" href="/images/decathlon_favicon.gif" th:href="@{/images/decathlon_favicon.gif}">
+    <link rel="icon" type="image/icon" href="/assets/images/decathlon_favicon.gif" th:href="@{/assets/images/decathlon_favicon.gif}">
     <link rel="stylesheet" href="/css/login.css" th:href="@{/css/login.css}">
     <title>Login Page</title>
 </head>
@@ -12,7 +12,7 @@
 <div class="container">
     <div class="principal">
         <div class="header">
-            <img class="logo-decathlon" src="/images/logo-decathlon.png" th:src="@{/images/logo-decathlon.png}" alt="logo-decathlon">
+            <img class="logo-decathlon" src="/assets/images/logo-decathlon.png" th:src="@{/assets/images/logo-decathlon.png}" alt="logo-decathlon">
         </div>
         <div class="divider"></div>
         <form class="loginForm" action="/auth/login" th:action="@{/auth/login}" method="post">
@@ -26,13 +26,13 @@
                     <input type="password" id="password" name="password" placeholder="Password" required>
                 </label>
             </div>
-            <div class="buttonDiv">
-                <button type="submit" class="submitBtn">Sign In</button>
+            <div class="buttonSection">
+                <button type="submit" class="submitButton">Sign In</button>
             </div>
         </form>
         <div class="footer">
             <form action="/account/create-account" th:action="@{/account/create-account}">
-                <button type="submit" class="accountBtn">Create an Account</button>
+                <button type="submit" class="accountButton">Create an Account</button>
             </form>
         </div>
     </div>

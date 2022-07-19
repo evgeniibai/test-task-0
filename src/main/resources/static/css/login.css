@@ -9,7 +9,7 @@ body {
     font-weight: 400;
     line-height: 1.5;
     background-color: rgba(21,144,208,.8);
-    background-image: url("/images/login-background.jpg");
+    background-image: url("/assets/images/login-background.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
@@ -82,7 +82,6 @@ form {
     background: none;
     border-radius: 0;
     color: white;
-
     outline: none;
 }
 
@@ -91,12 +90,12 @@ form {
     opacity: 1;
 }
 
-.buttonDiv {
+.buttonSection {
     display: grid;
     margin-top: 33px;
 }
 
-.submitBtn {
+.submitButton {
     border: none;
     margin: auto;
     text-transform: uppercase;
@@ -118,7 +117,7 @@ form {
     padding-bottom: 5px;
 }
 
-.accountBtn {
+.accountButton {
     border: 1px;
     border-color: white;
     border-style: solid;
