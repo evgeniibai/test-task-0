@@ -1,15 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 *, ::before, ::after {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-family: 'Roboto', sans-serif;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
     background-color: rgba(21,144,208,.8);
-    background-image: url("/assets/images/login-background.jpg");
+    background-image: url("/assets/images/backgrounds/login.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
@@ -95,7 +97,13 @@ form {
     margin-top: 33px;
 }
 
+button {
+    font-family: inherit;
+    font-size: 1rem;
+}
+
 .submitButton {
+    font-family: inherit;
     border: none;
     margin: auto;
     text-transform: uppercase;
@@ -118,6 +126,7 @@ form {
 }
 
 .accountButton {
+    font-family: inherit;
     border: 1px;
     border-color: white;
     border-style: solid;
