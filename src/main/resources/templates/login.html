@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,6 +18,7 @@
             <img class="logo-decathlon" src="/assets/images/logo-decathlon.png" th:src="@{/assets/images/logo-decathlon.png}" alt="logo-decathlon">
         </div>
         <div class="divider"></div>
+        <div th:if="${param.error}" class="error-section">Invalid username and password.</div>
         <form class="loginForm" action="/auth/login" th:action="@{/auth/login}" method="post">
             <div class="form-group">
                 <label for="username" class="form-label">

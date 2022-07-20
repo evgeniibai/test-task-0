@@ -24,32 +24,31 @@ import java.util.Map;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig {
 
+    private static final String ASSETS = "/assets/**";
     private static final String INDEX_PAGE = "/";
-    private static final String HOME_PAGE = "/home";
     private static final String AUTH_LOGIN = "/auth/login";
     private static final String AUTH_LOGOUT = "/auth/logout";
-    private static final String DATABASE_URL = "/h2";
     private static final String CREATE_ACCOUNT = "/account/create-account";
-    private static final String ASSETS = "/assets/**";
-    private static final String FORWARD_URL = "/welcome";
+    private static final String HOME_PAGE = "/home"; //TODO
+    private static final String DATABASE_URL = "/h2";
 
     @Bean
     @SneakyThrows
     public SecurityFilterChain securityFilterChain(HttpSecurity http) {
+        // @formatter:off
         http
                 // It is generally BAD to disable CSRF protection!
                 .csrf().disable()
                 .authorizeRequests()
                     .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                    .antMatchers(ASSETS).permitAll()
-                    .mvcMatchers(INDEX_PAGE, HOME_PAGE, CREATE_ACCOUNT).permitAll()
-                    .mvcMatchers(DATABASE_URL).hasAuthority(Permission.WRITE.getAction())
+                    .antMatchers(ASSETS, INDEX_PAGE, CREATE_ACCOUNT).permitAll()
+                    .antMatchers(DATABASE_URL).hasAuthority(Permission.WRITE.getAction())
                     .anyRequest()
                     .fullyAuthenticated()
                     .and()
                 .formLogin()
                     .loginPage(AUTH_LOGIN).permitAll()
-                    .defaultSuccessUrl(FORWARD_URL)
+                    .defaultSuccessUrl(HOME_PAGE)
                     .and()
                 .logout()
                     .logoutRequestMatcher(new AntPathRequestMatcher(AUTH_LOGOUT, "POST"))
@@ -62,7 +61,7 @@ public class WebSecurityConfig {
                     .and()
                 // add this line to use H2 web console
                 .headers().frameOptions().disable();
-
+        // @formatter:on
         return http.build();
     }
 
